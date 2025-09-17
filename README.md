@@ -29,7 +29,7 @@ A backend system that allows users to register and apply for small loans with in
    - Server: http://localhost:8000
    - Interactive docs: http://localhost:8000/docs
 
-## 📊 Database Schema
+## Database Schema
 
 The application uses SQLite with the following tables:
 
