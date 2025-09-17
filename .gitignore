@@ -1,3 +1,4 @@
 lipad-env
 app/__pycache__/
 loans.db
+.DS_Store
