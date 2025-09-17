@@ -1,5 +1,6 @@
 from typing import Optional
 from pydantic import BaseModel, EmailStr, Field, condecimal
+from decimal import Decimal as decimal
 
 # Users 
 class UserCreate(BaseModel):
@@ -7,7 +8,7 @@ class UserCreate(BaseModel):
     email: EmailStr
     phone_number: str = Field(min_length=7, max_length=15)
 
-class UserResponse(BaseModel):
+class UserOut(BaseModel):
     id: int
     name: str
     email: EmailStr
@@ -24,15 +25,16 @@ class LoanCreate(BaseModel):
 class LoanOut(BaseModel):
     id: int
     user_id: int
-    amount: float
+    amount: decimal
     status: str
     created_at: str
     updated_at: str
+    
     class Config:
         from_attributes = True
     
 class WebhookIn(BaseModel):
-    load_id: int
+    loan_id: int
     score: int
     status: str
     reason: Optional[str] = None
